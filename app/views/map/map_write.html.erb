@@ -1,8 +1,85 @@
-<h1>Map#map_write</h1>
-<p>Find me in app/views/map/map_write.html.erb</p>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>Bootstrap Registration Page</title>
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLE CSS -->
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE CSS -->
+    <link href="assets/css/style.css" rel="stylesheet" />    
+    <!-- GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
-    <div>
-        <form action = '/map/map_list'>
-              <button type="submit" class="btn btn-default">게시판으로 돌아가기</button>
-        </form>
+</head>
+<body>
+    <div class="container">
+        <div class="row text-center pad-top ">
+            <div class="col-md-12">
+                <h2>맛집을 추천해 주세요!</h2>
+            </div>
+        </div>
+         <div class="row  pad-top">
+               
+                <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                        <strong> 영 대 맛 집 </strong>  
+                            </div>
+                            <div class="panel-body">
+                                <form role="form" action = "/map/map_read" method = "POST">
+<br/>
+                                        <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
+                                            <input type="text" class="form-control" name = "name" placeholder="Name" />
+                                        </div>
+                                     <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
+                                            <input type="text" class="form-control" name = "menu" placeholder="Recommand Menu" />
+                                        </div>
+                                         <div class="form-group input-group">
+                                            <span class="input-group-addon"></span>
+                                            <input type="text" class="form-control" name = "address" placeholder="Enter address of marcket" />
+                                        </div>
+                                      <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                                            <input type="text" class="form-control" name = "mail" placeholder= "Your Email"/>
+                                        </div>
+                                     <div class="form-group input-group">
+                                            <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                                            <input type="password" class="form-control" name = "password" placeholder="Enter Password" />
+                                        </div>
+                                     
+
+                                        <button type="submit" class="btn btn-default">글쓰기</button>
+                                </form>
+                                    
+                                    <a href='/map/map_list' class="btn btn-success ">게시판으로 돌아가기</a>
+
+                            </div>
+                           
+                        </div>
+                    </div>
+                
+                
+        </div>
     </div>
+
+
+
+
+    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY  -->
+    <script src="assets/plugins/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="assets/plugins/bootstrap.js"></script>
+   
+</body>
+</html>
