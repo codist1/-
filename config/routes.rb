@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  get 'map/map_list'
+
+  get 'map/map_read'
+
+  get 'map/map_write'
+
+  get 'map/map_update'
+  
+  post 'map/map_update_action'
+
+  get 'map/map_delete'
+
+
   get 'home/index'
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
