@@ -3,7 +3,7 @@ class CreateMapComments < ActiveRecord::Migration
     create_table :map_comments do |t|
       
         t.string :menu
-        t.mail :mail        
+        t.string :mail        
         t.string :address
         t.string :password
         

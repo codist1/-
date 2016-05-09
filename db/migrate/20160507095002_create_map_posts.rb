@@ -3,7 +3,7 @@ class CreateMapPosts < ActiveRecord::Migration
     create_table :map_posts do |t|
         t.string 'name'
         t.string :menu
-        t.mail :mail        
+        t.string :mail        
         t.string :address
         t.string :password
         
