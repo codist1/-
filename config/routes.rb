@@ -1,18 +1,14 @@
 Rails.application.routes.draw do
   get 'map/map_list'
-
-  post 'map/map_read'
-  get 'map/map_read'
-
   get 'map/map_write'
-
-  get 'map/map_update'
+  post '/map/map_write_action'
+  get "map/map_read/:post_id" => 'map#map_read'
+  get 'map/map_update/:post_id' => "map#map_update"
+  post 'map/map_update_action/:post_id' => "map#map_update_action"
   
   post 'map/map_comment'
-  
-  get 'map/map_update_action'
 
-  get 'map/map_delete'
+  get 'map/map_delete/:post_id' => 'map#map_delete'
 
 
   get 'home/index'

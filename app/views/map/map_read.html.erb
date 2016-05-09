@@ -1,43 +1,12 @@
-<div class="panel-body">
-    <% @map_post.each do |p| %>
 
+<%= @map_post.name %>
+<%= @map_post.menu %>
+<%= @map_post.mail %>
+<%= @map_post.address %>
 
-        <div class="form-group input-group">
-            <span class="input-group-addon"><i class="fa fa-circle-o-notch" ></i></span>
-                <%= p.name %>
-        
-                <div class="form-group input-group">
-                    <span class="input-group-addon"><i class="fa fa-circle-o-notch" ></i></span>
-                          <% p.map_comments.each do |r| %>
-                              <p><%= r.content %></p>
-                          <% end %>  
-        </div>
-          
-        <form style = "margin-top : 20px;" action = "/map/map_commet" method = "POST">
-            <div class="form-group">
-            <input type = "hidden" value = "<%= p.id %>" name = "post_id">
-                <label for="exampleInputPassword1">Reply</label>
-                <textarea class="form-control" name = "content" rows="2" id="content" placeholder="Content"></textarea>
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-    <% end %>
-</div>
-    <div>
-        <form action = '/map/map_update'>
-              <button type="submit" class="btn btn-default">수정하기</button>
-        </form>
-    </div>
+    <a href ="/map/map_update/<%= @map_post.id%>"><button type="submit" class="btn btn-default">수정하기</button></a>
 
-    <div>
-        <form action = '/map/map_delete'>
-              <button type="submit" class="btn btn-default">삭제</button>
-        </form>
-    </div>
+    
+    <a href = '/map/map_delete/<%= @map_post.id %>'><button type="submit" class="btn btn-default">삭제</button></a>
 
-
-    <div>
-        <form action = '/map/map_list'>
-              <button type="submit" class="btn btn-default">게시판으로 돌아가기</button>
-        </form>
-    </div>
+    <a href= '/map/map_list'><button type="submit" class="btn btn-default">게시판으로 돌아가기</button></a>
