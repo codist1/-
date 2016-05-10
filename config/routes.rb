@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-    root 'home#index'
+  root 'home#index'
 
   get 'map/map_list'
   get 'map/map_write'
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'map/map_delete/:post_id' => 'map#map_delete'
 
 
-    get ':controller(/:action(/:id))'
+  get ':controller(/:action(/:id))'
   post ':controller(/:action(/:id))'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -14,7 +14,7 @@ class HomeController < ApplicationController
     post.content=params[:content]
     post.img = params[:img]
     post.save
-    redirect_to '/'
+    redirect_to '/home/all'
   end
   
   #맛집 글을 올리면  보여지는 곳
@@ -24,10 +24,12 @@ class HomeController < ApplicationController
   
   def detail
     @stars = Myfood.find(params[:id])
+    @mycomment=Tv.all
   end
   
   def twin
        Tv.create(tv_id: params[:tv_id].to_i, comment: params[:msg], score: params[:rating].to_i)
+
        redirect_to :back
   end
   
