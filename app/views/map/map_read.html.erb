@@ -4,31 +4,42 @@
 <div class="container">
   <div class="row text-center pad-top ">
     <div class="col-md-12">
-        <h2> <%= @map_post.name %>님과의 대화</h2>
+        <h2> <%= @map_post.mail %>님과의 대화</h2>
     </div>
   </div>
 </div>
 <div class="container" >
-  <div class="chat">
-    <div>
-      <%= @map_post.mail %>
+  <div class="row">
+    <div class="col-md-1">
+      <br>
+      <%= image_tag("pic.jpg",  size: "45x45", :alt => "rss feed", class: "pic") %>
     </div>
-    <div class="bubble me">
-      <%= @map_post.name %>
+    <div class="col-md-10">
+      <div class="chat">
+        <div>
+          <%= @map_post.mail %>
+        </div>
+        <div class="bubble me">
+          
+          <%= @map_post.name %>
+        </div>
+        <div class="bubb me">
+          위치 !! 
+          <div id="map-canvas" style="width: 400px; height: 300px;" ></div>
+        </div>
+        <div class="bubb me">
+          <p>추천 메뉴 : <%= @map_post.menu %></p>
+        </div>    
+        <div class="bubb me">
+          <p>주소 :  <%= @map_post.addr%></p>
+          <p>우편 번호 : <%= @map_post.zipcode %></p>
+        </div>       
+      </div>
     </div>
-    <div class="bubble me">
-      위치 !! 
-      <div id="map-canvas" style="width: 400px; height: 300px;" title="승계!"></div>
-    </div>
-    <div class="bubble me">
-      <p>추천 메뉴 : <%= @map_post.menu %></p>
-    </div>    
-    <div class="bubble me">
-      <p>주소 :  <%= @map_post.addr%></p>
-      <p>우편 번호 : <%= @map_post.zipcode %></p>
-    </div>       
-  </div>
+    <div class="col-md-1">
 
+    </div>
+  </div>
 </div>    
     
 <div class="container">

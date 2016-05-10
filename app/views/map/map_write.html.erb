@@ -10,44 +10,68 @@
 
 
 <form role="form" action = "/map/map_write_action" method = "POST">
-  <div class="container">
-    <div class="chat">
-      <div class="bubble me">
-        <p>메일이 뭐니??</p>
-      </div>
-      <div class="bubble you">
-        <input type="text" class="form-control" name = "mail" placeholder= "Your Email"/>
-      </div>
-      <div class="bubble me">
-        <p>어디가 그렇게 맛있어??</p>
-      </div>
-      <div class="bubble you">
-        <input type="text" class="form-control" name = "name" placeholder="Name" />
-      </div>
-      <div class="bubble me">
-        <p>추천 메뉴는 뭐야 ??</p>
-      </div>
-      <div class="bubble you">
-        <input type="text" class="form-control" name = "menu" placeholder="Recommand Menu" /> 
-      </div>
-      <div class="bubble me">
-        <p>주소가 어디야??</p>
-      </div>
-      <div class="bubble you">
-        <p> 주소를 검색하기</p>
-    		<label>
-    			<input type="text" class="XenoFindZip" placeholder="엔터를 누르면 검색됩니다." />
-    			<span class="XenoFindZipLabel"></span>
-    		</label>
-      </div>
-      
-      <div class="bubble you">
-        <p>주소 : <input type="text" class="addr" name="addr"> </p>
-        <p>우편 번호 : <input type="text" name="zipcode"> </p>
-        <p>상세 주소 : <input type="text" class="addr" name="addr_remain"></p>
-      </div>       
+  <div style="margin-left: 290px; margin-right: 290px;">
+      <div class="row">
+        <div class="col-md-1">
+          <%= image_tag("pic.jpg",  size: "45x45", :alt => "rss feed", class: "pic") %>
+          <br><br><br><br><br>
+          <%= image_tag("pic.jpg",  size: "45x45", :alt => "rss feed", class: "pic") %>
+          <br><br><br><br><br>
+          <%= image_tag("pic.jpg",  size: "45x45", :alt => "rss feed", class: "pic") %>
+          <br><br><br><br><br>
+          <%= image_tag("pic.jpg",  size: "45x45", :alt => "rss feed", class: "pic") %>
+        </div>
+        <div class="col-md-10">
+          <div class="chat">
+            <div class="bubble me">
+              <p>메일이 뭐니??</p>
+            </div>
+            <div class="bubble you">
+              <input type="text" class="form-control" name = "mail" placeholder= "Your Email"/>
+            </div>
+            <div class="bubble me">
+              <p>어디가 그렇게 맛있어??</p>
+            </div>
+            <div class="bubble you">
+              <input type="text" class="form-control" name = "name" placeholder="Name" />
+            </div>
+            <div class="bubble me">
+              <p>추천 메뉴는 뭐야 ??</p>
+            </div>
+            <div class="bubble you">
+              <input type="text" class="form-control" name = "menu" placeholder="Recommand Menu" /> 
+            </div>
+            <div class="bubble me">
+              <p>주소가 어디야??</p>
+            </div>
+            <div class="bubble you">
+              <p> 주소를 검색하기</p>
+          		<label>
+          			<input type="text" class="XenoFindZip" placeholder="엔터를 누르면 검색됩니다." />
+          			<span class="XenoFindZipLabel"></span>
+          		</label>
+            </div>
+            
+            <div class="bubb you">
+              <p>주소 : <input type="text" class="addr" name="addr"> </p>
+              <p>우편 번호 : <input type="text" name="zipcode"> </p>
+              <p>상세 주소 : <input type="text" class="addr" name="addr_remain"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1">
+          <br><br><br>
+          <%= image_tag("pic.jpg",  size: "45x45", :alt => "rss feed", class: "pic") %>
+          <br><br><br><br><br>
+          <%= image_tag("pic.jpg",  size: "45x45", :alt => "rss feed", class: "pic") %>
+          <br><br><br><br><br>
+          <%= image_tag("pic.jpg",  size: "45x45", :alt => "rss feed", class: "pic") %>
+          <br><br><br><br><br>
+          <%= image_tag("pic.jpg",  size: "45x45", :alt => "rss feed", class: "pic") %>
+        </div>
     </div>
-  </div>    
+  </div>
+    
   <div class="container">
     <button type="submit" class="btn btn-default">글쓰기</button>
     <a href='/map/map_list' class="btn btn-success ">게시판으로 돌아가기</a>
@@ -55,5 +79,15 @@
 </form>
 
         
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.min.css" />
+	
 
+	<link rel="stylesheet" href="//xenosi.de/load/roadzip/roadzip.css" />
+	<script src="//xenosi.de/load/roadzip/roadzip.min.js"></script> 
 
+	<script>
+	$(function() {
+		$('input.XenoFindZip').each(XenoZipFinder); // input 에 검색스크립트 연결
+	});
+	</script>

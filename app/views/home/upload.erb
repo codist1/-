@@ -1,1 +1,40 @@
+
+
+<!--
+<section id="contact">
+					<div class="content">
+						<div id="form">
+							<form action="/home/write" id="contactForm" method="post">
+								<span>Name</span>
+								<input type="text" name="name" class="name" placeholder="Enter your name" tabindex=1 />
+								<span id="captcha"></span>
+								<input type="text" name="where" class="captcha" maxlength="4" size="4" placeholder="Enter captcha code" tabindex=3 />
+								<span>Message</span>
+								<textarea name="content" class="message" placeholder="Enter your message" tabindex=4></textarea>
+								<input type="submit" name="submit" value="Send e-mail" class="submit" tabindex=5>
+								<span>img</span>
+							    <input type="text" class="" name="img" placeholder="http://">
+							</form>
+						</div>
+</section>
+-->
+<div class="container">
+    <div class="jumbotron">
+      <h1>새로 등록하기</h1>
+      <p class="lead">이미지 링크와 소개를 등록해주세요</p>
+      <%= form_tag "/home/write", method: "POST" do %>
+        <div class="form-group">
+          <input type="text" class="form-control" name="name" placeholder="제목">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="img" placeholder="http://">
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" name="content" placeholder="영남대학교 맛집 소개"></textarea>
+        </div>
+      <br>
+      <button class="btn btn-success">등록하기</button>
+      <% end %>
+    </div>
+</div>
 <%= render :partial =>"home/basic"%>
