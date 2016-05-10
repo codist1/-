@@ -2,9 +2,7 @@ class CreateMapComments < ActiveRecord::Migration
   def change
     create_table :map_comments do |t|
       
-        t.string :menu
-        t.string :mail        
-        t.string :address
+        t.string :comment
         t.string :password
         
         t.integer :post_id

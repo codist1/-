@@ -1,44 +1,59 @@
+<%= render partial: "common" %>
+
 <div class="container">
   <div class="row text-center pad-top ">
     <div class="col-md-12">
         <h2>맛집을 추천해 주세요!</h2>
     </div>
   </div>
-  <div class="row  pad-top">
-    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <strong> 영 대 맛 집 </strong>  
-        </div>
-        <div class="panel-body">
-          <!-- form-->
-          <form role="form" action = "/map/map_write_action" method = "POST">
-            <div class="form-group input-group">
-                <span class="input-group-addon"><i class="fa fa-circle-o-notch"  ></i></span>
-                <input type="text" class="form-control" name = "name" placeholder="Name" />
-            </div>
-            <div class="form-group input-group">
-              <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-              <input type="text" class="form-control" name = "menu" placeholder="Recommand Menu" />
-            </div>
-            <div class="form-group input-group">
-              <span class="input-group-addon"></span>
-              <input type="text" class="form-control" name = "address" placeholder="Enter address of marcket" />
-            </div>
-            <div class="form-group input-group">
-              <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-              <input type="text" class="form-control" name = "mail" placeholder= "Your Email"/>
-            </div>
-           <div class="form-group input-group">
-              <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-              <input type="password" class="form-control" name = "password" placeholder="Enter Password" />
-            </div>
-            <button type="submit" class="btn btn-default">글쓰기</button>
-        </form>
-          <a href='/map/map_list' class="btn btn-success ">게시판으로 돌아가기</a>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
+
+
+<form role="form" action = "/map/map_write_action" method = "POST">
+  <div class="container">
+    <div class="chat">
+      <div class="bubble me">
+        <p>메일이 뭐니??</p>
+      </div>
+      <div class="bubble you">
+        <input type="text" class="form-control" name = "mail" placeholder= "Your Email"/>
+      </div>
+      <div class="bubble me">
+        <p>어디가 그렇게 맛있어??</p>
+      </div>
+      <div class="bubble you">
+        <input type="text" class="form-control" name = "name" placeholder="Name" />
+      </div>
+      <div class="bubble me">
+        <p>추천 메뉴는 뭐야 ??</p>
+      </div>
+      <div class="bubble you">
+        <input type="text" class="form-control" name = "menu" placeholder="Recommand Menu" /> 
+      </div>
+      <div class="bubble me">
+        <p>주소가 어디야??</p>
+      </div>
+      <div class="bubble you">
+        <p> 주소를 검색하기</p>
+    		<label>
+    			<input type="text" class="XenoFindZip" placeholder="엔터를 누르면 검색됩니다." />
+    			<span class="XenoFindZipLabel"></span>
+    		</label>
+      </div>
+      
+      <div class="bubble you">
+        <p>주소 : <input type="text" class="addr" name="addr"> </p>
+        <p>우편 번호 : <input type="text" name="zipcode"> </p>
+        <p>상세 주소 : <input type="text" class="addr" name="addr_remain"></p>
+      </div>       
+    </div>
+  </div>    
+  <div class="container">
+    <button type="submit" class="btn btn-default">글쓰기</button>
+    <a href='/map/map_list' class="btn btn-success ">게시판으로 돌아가기</a>
+  </div>
+</form>
+
+        
+
 

@@ -4,8 +4,12 @@ class CreateMapPosts < ActiveRecord::Migration
         t.string 'name'
         t.string :menu
         t.string :mail        
-        t.string :address
+        
         t.string :password
+        
+        t.string :zipcode
+        t.string :addr
+        t.string :addr_remain
         
       t.timestamps null: false
     end

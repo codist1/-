@@ -5,7 +5,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
-  
+	<link rel="stylesheet" href="//xenosi.de/load/roadzip/roadzip.css" />
+	<script src="//xenosi.de/load/roadzip/roadzip.min.js"></script> 
   <!--부트스트랩 CDN 시작 -->
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -16,6 +17,15 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <!--부트스트랩 CDN 끝 -->
+  <!-- roadzip.min.js -->
+	<!-- roadzip.min.js 을 이용하려면 jquery ui 가 필요합니다. -->
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.min.css" />
+		<script>
+	$(function() {
+		$('input.XenoFindZip').each(XenoZipFinder); // input 에 검색스크립트 연결
+	});
+	</script>
 </head>
 <body>
 

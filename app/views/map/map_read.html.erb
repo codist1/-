@@ -1,14 +1,123 @@
+<%= render partial: "common" %>
+<br><br>
+<!-- Page Content -->
+<div class="container">
+  <div class="row text-center pad-top ">
+    <div class="col-md-12">
+        <h2> <%= @map_post.name %>님과의 대화</h2>
+    </div>
+  </div>
+</div>
+<div class="container" >
+  <div class="chat">
+    <div>
+      <%= @map_post.mail %>
+    </div>
+    <div class="bubble me">
+      <%= @map_post.name %>
+    </div>
+    <div class="bubble me">
+      위치 !! 
+      <div id="map-canvas" style="width: 400px; height: 300px;" title="승계!"></div>
+    </div>
+    <div class="bubble me">
+      <p>추천 메뉴 : <%= @map_post.menu %></p>
+    </div>    
+    <div class="bubble me">
+      <p>주소 :  <%= @map_post.addr%></p>
+      <p>우편 번호 : <%= @map_post.zipcode %></p>
+    </div>       
+  </div>
 
-<%= @map_post.name %>
-<%= @map_post.menu %>
-<%= @map_post.mail %>
-<%= @map_post.address %>
-
-
+</div>    
+    
+<div class="container">
+  <div>
+    <form action="/map/map_comment/<%=@map_post.id%>" method="POST">
+      <input tpye="text" name="comment">
+      <input type="password" name="password">
+      <button type="submit" class="btn btn-default">댓글 달기</button>
+    </form>
 
     <a href ="/map/map_update/<%= @map_post.id%>"><button type="submit" class="btn btn-default">수정하기</button></a>
-
-    
     <a href = '/map/map_delete/<%= @map_post.id %>'><button type="submit" class="btn btn-default">삭제</button></a>
-
     <a href= '/map/map_list'><button type="submit" class="btn btn-default">게시판으로 돌아가기</button></a>
+  </div>
+</div>
+<!-- /.container -->
+
+
+
+<input type="hidden" class="addr" value="<%= @map_post.addr%>">
+<input type="hidden" class="p_id" value="<%=@map_post.id%>">
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyARMzfr_tAtO9y3YRysYlcV2ok8YQKwffU" type="text/javascript" ></script>
+      <!-- GoogoleMap Asynchronously Loading the API ********************************************* -->
+<script>
+      $(function(){
+              var mapOptions = {
+                  zoom: 15, // 지도를 띄웠을 때의 줌 크기
+                  mapTypeId: google.maps.MapTypeId.ROADMAP
+              };
+          
+        $(function initialize() {
+            var addr = $('.addr').val();
+            var p_id = $('.p_id').val();
+            var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions); // div의 id과 값이 같아야 함. "map-canvas"
+              var size_x = 40; // 마커로 사용할 이미지의 가로 크기
+              var size_y = 40; // 마커로 사용할 이미지의 세로 크기
+              // 마커로 사용할 이미지 주소
+              var image = new google.maps.MarkerImage( 'http://individual.icons-land.com/IconsPreview/MapMarkers/PNG/Centered/16x16/MapMarker_Marker_Outside_Blue.png',
+                                                          new google.maps.Size(size_x, size_y),
+                                                          '',
+                                                          '',
+                                                          new google.maps.Size(size_x, size_y));
+              // Geocoding *****************************************************
+              var address = addr; // DB에서 주소 가져와서 검색하거나 왼쪽과 같이 주소를 바로 코딩.
+              var marker = null;
+              var geocoder = new google.maps.Geocoder();
+              geocoder.geocode( { 'address': address}, function(results, status) {
+                  if (status == google.maps.GeocoderStatus.OK) {
+                      map.setCenter(results[0].geometry.location);
+                      marker= new google.maps.Marker({
+                          map: map,
+                          icon: 'http://individual.icons-land.com/IconsPreview/MapMarkers/PNG/Centered/16x16/MapMarker_Marker_Outside_Blue.png', // 마커로 사용할 이미지(변수)
+                          title: addr, // 마커에 마우스 포인트를 갖다댔을 때 뜨는 타이틀
+                          position: results[0].geometry.location
+                      });
+                  var content =  document.createElement("span");
+                                content.innerHTML = addr+" <br> "; // 말풍선 안에 들어갈 내용
+                                  // 마커를 클릭했을 때의 이벤트. 말풍선 뿅~
+                  var infowindow = new google.maps.InfoWindow({ content: content});
+                      google.maps.event.addListener(marker, "click", function() {infowindow.open(map,marker);});
+                      // 상세정보 마우스오버시 말풍선
+                        $(function(){
+                          $("#de_").hover(
+                            function() {
+                              infowindow.open(map,marker);
+                            },
+                            function() {
+                              infowindow.close(map,marker);
+                            });
+                        });
+                  } else {
+                  }
+              });
+              
+              // Geocoding // *****************************************************
+
+              google.maps.event.addDomListener(window, 'load', initialize);
+              });
+              
+              
+          function geocodeAddress(geocoder, resultsMap) {
+            var address = document.getElementById('address').value;
+            geocoder.geocode({'address': address}, function(results, status) {
+            if (status === google.maps.GeocoderStatus.OK) {
+              resultsMap.setCenter(results[0].geometry.location);
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+      });
+</script>

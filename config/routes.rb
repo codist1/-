@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'map/map_update/:post_id' => "map#map_update"
   post 'map/map_update_action/:post_id' => "map#map_update_action"
   
-  post 'map/map_comment'
+  post 'map/map_comment/:post_id' => "map#map_comment"
 
   get 'map/map_delete/:post_id' => 'map#map_delete'
 

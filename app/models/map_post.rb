@@ -1,3 +1,3 @@
 class MapPost < ActiveRecord::Base
-    has_many :map_comments
+    has_many :mapComments
 end

@@ -9,7 +9,9 @@ class MapController < ApplicationController
     a_post.name = params[:name]
     a_post.menu = params[:menu]
     a_post.mail = params[:mail]
-    a_post.address = params[:address]
+    a_post.zipcode = params[:zipcode]
+    a_post.addr = params[:addr]
+    a_post.addr_remain = params[:addr_remain]
     a_post.password = params[:password]
     a_post.save
     
@@ -42,10 +44,11 @@ class MapController < ApplicationController
   
   def map_comment
     reply = MapComment.new
-    reply.content = params[:content]
+    reply.comment = params[:comment]
     reply.post_id = params[:post_id]
+    reply.password = params[:password]
     reply.save
     
-    redirect_to "/map/map_read/post_id"
+    redirect_to "/map/map_read/#{params[:post_id]}"
   end
 end

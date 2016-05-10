@@ -1,3 +1,3 @@
 class MapComment < ActiveRecord::Base
-    belongs_to :map_post
+    belongs_to :mapPost
 end
