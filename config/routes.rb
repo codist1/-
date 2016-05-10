@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  
+  get ':controller(/:action(/:id))'
+  post ':controller(/:action(/:id))'
+  root 'home#index'
   get 'map/map_list'
   get 'map/map_write'
   post '/map/map_write_action'
@@ -11,9 +15,7 @@ Rails.application.routes.draw do
   get 'map/map_delete/:post_id' => 'map#map_delete'
 
 
-  get ":controller(/:action(/:id))"
-  post ":controller(/:action(/:id))"
-  root 'home#index'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
